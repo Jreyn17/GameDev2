@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Gun : MonoBehaviour
+public abstract class Gun : MonoBehaviour
 {
     public float range = 100;
     public float timeBetweenShots = 0.2f;
@@ -12,10 +12,7 @@ public class Gun : MonoBehaviour
     {
         timer = GetComponent<Timer>();
     }
-    protected virtual void Shoot()
-    {
-        Debug.Log("Shoot function not defined for: " + gameObject.name);
-    }
+    abstract protected void Shoot();
 
     public void GetLeftClickInput(InputAction.CallbackContext context)
     {
