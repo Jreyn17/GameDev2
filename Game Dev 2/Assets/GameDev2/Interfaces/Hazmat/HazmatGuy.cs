@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class HazmatGuy : MonoBehaviour
+public class HazmatGuy : MonoBehaviour, IShootable
 {
     public int health = 10;
     public MeshRenderer rend;
@@ -21,7 +21,7 @@ public class HazmatGuy : MonoBehaviour
 
     }
 
-    public void TakeDamage()
+    public void OnShot()
     {
         //Take damage.
         health -= 1;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class BarrelExplosive : MonoBehaviour
+public class BarrelExplosive : MonoBehaviour, IShootable
 {
     public int hits_before_explode = 3;
     public MeshRenderer rend;
@@ -20,8 +20,8 @@ public class BarrelExplosive : MonoBehaviour
     {
         
     }
-
-    public void RespondToHit()
+  
+    public void OnShot()
     {
         //Take a hit.
         hits_before_explode -= 1;

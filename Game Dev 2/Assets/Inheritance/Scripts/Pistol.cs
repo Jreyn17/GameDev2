@@ -16,6 +16,13 @@ public class Pistol : Gun
             if (Physics.Raycast(transform.parent.position, transform.parent.forward * range, out hit))
             {
                 GameObject newMarker = Instantiate(hitMarker, hit.point, Quaternion.identity);
+
+                //Check if the object shot has the IShootable interface. If so, play the OnShot function.
+                IShootable shootable = hit.collider.gameObject.GetComponent<IShootable>();
+                if (shootable != null)
+                {
+                    shootable.OnShot();
+                }
             }
         }
     }
